@@ -1,0 +1,133 @@
+///*** XML and JAVA Files  ***///
+
+// XML File //
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="415dp"
+        android:layout_height="117dp"
+        android:gravity="center"
+        android:text="Hamming Distance"
+        android:textColor="#E41A1A"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.847"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <EditText
+        android:id="@+id/str1"
+        android:layout_width="316dp"
+        android:layout_height="61dp"
+        android:ems="10"
+        android:hint="Enter data"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235" />
+
+    <EditText
+        android:id="@+id/str2"
+        android:layout_width="316dp"
+        android:layout_height="61dp"
+        android:ems="10"
+        android:hint="Enter data"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.347" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="306dp"
+        android:layout_height="54dp"
+        android:text="Result"
+        android:textSize="15dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.463" />
+
+    <Button
+        android:id="@+id/find"
+        android:layout_width="169dp"
+        android:layout_height="61dp"
+        android:text="find"
+        android:onClick="onButtonClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+// JAVA File //
+
+package com.example.hamming;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+
+    private EditText input1, input2;
+    private Button button;
+    private TextView output;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        input1 = findViewById(R.id.str1);
+        input2 = findViewById(R.id.str2);
+        button = findViewById(R.id.find);
+        output = findViewById(R.id.result);
+    }
+
+    public void onButtonClick(View view) {
+        String str1 = input1.getText().toString();
+        String str2 = input2.getText().toString();
+
+        int hammingDistance = findHammingDistance(str1, str2);
+
+        output.setText("Hamming distance: " + hammingDistance);
+        Toast.makeText(this, hammingDistance ,Toast.LENGTH_LONG).show();
+    }
+
+    private int findHammingDistance(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            throw new IllegalArgumentException("Strings must have equal length");
+        }
+
+        int distance = 0;
+        for (int i = 0; i < str1.length(); i++) {
+            if (str1.charAt(i) != str2.charAt(i)) {
+                distance++;
+            }
+        }
+
+        return distance;
+    }
+}
