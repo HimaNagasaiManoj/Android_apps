@@ -1,0 +1,270 @@
+//** XML File **//
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="300dp"
+        android:layout_height="64dp"
+        android:gravity="center"
+        android:text="Calculator App"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <EditText
+        android:id="@+id/firstnumber"
+        android:layout_width="179dp"
+        android:layout_height="63dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="First Number"
+        android:inputType="number"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.158" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="410dp"
+        android:layout_height="66dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="Result"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.276" />
+
+    <EditText
+        android:id="@+id/secondnumber"
+        android:layout_width="179dp"
+        android:layout_height="63dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Second Number"
+        android:inputType="number"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.158" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="102dp"
+        android:layout_height="65dp"
+        android:onClick="OnCalculateClick"
+        android:text="Add"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.481" />
+
+    <Button
+        android:id="@+id/sub"
+        android:layout_width="102dp"
+        android:layout_height="65dp"
+        android:text="Sub"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.482" />
+
+    <Button
+        android:id="@+id/mul"
+        android:layout_width="102dp"
+        android:layout_height="65dp"
+        android:text="MUL"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.599" />
+
+    <Button
+        android:id="@+id/div"
+        android:layout_width="102dp"
+        android:layout_height="65dp"
+        android:text="DIV"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.599" />
+
+    <Button
+        android:id="@+id/mod"
+        android:layout_width="102dp"
+        android:layout_height="65dp"
+        android:onClick="OnCalculateClick"
+        android:text="mod"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.886"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.599" />
+
+    <Button
+        android:id="@+id/ac"
+        android:layout_width="102dp"
+        android:layout_height="65dp"
+        android:onClick="OnCalculateClick"
+        android:text="ac"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+//** JAVA File  **//
+
+package com.example.calc;
+import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.google.android.material.snackbar.Snackbar;
+public class MainActivity extends AppCompatActivity {
+    EditText n1, n2;
+    Button add, sub, div, mul, mod, ac;
+    TextView res, t1;
+
+
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        n1 = findViewById(R.id.firstnumber);
+        n2 = findViewById(R.id.secondnumber);
+        add = findViewById(R.id.add);
+        sub = findViewById(R.id.sub);
+        mul = findViewById(R.id.mul);
+        div = findViewById(R.id.div);
+        res = findViewById(R.id.result);
+        t1 = findViewById(R.id.t1);
+        mod = findViewById(R.id.mod);
+        ac = findViewById(R.id.ac);
+    
+            // Set onClickListeners for each button
+            add.setOnClickListener(new View.OnClickListener() {
+                @Override
+
+                public void onClick(View add) {
+                    calculate('+');
+                }
+            });
+
+            findViewById(R.id.sub).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View sub) {
+                    calculate('-');
+                }
+            });
+
+            findViewById(R.id.mul).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View mul) {
+                    calculate('*');
+                }
+            });
+
+            findViewById(R.id.div).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View div) {
+                    calculate('/');
+                }
+            });
+
+        findViewById(R.id.mod).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View mod) {
+                calculate('%');
+            }
+        });
+
+                ac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                res.setText("");
+                n1.setText("0");
+                n2.setText("0");
+
+
+            }
+        });
+        }
+        // Method to perform the calculation
+        private void calculate ( char operator){
+            double num1 = Double.parseDouble(n1.getText().toString());
+            double num2 = Double.parseDouble(n2.getText().toString());
+            double result = 0;
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                case '%':
+                    result = num1 % num2;
+                    break;
+            }
+            res.setText("The Value of " + n1.getText().toString() + operator + n2.getText().toString() + " is : " + result);
+            Snackbar.make(add, "The Value of " + n1.getText().toString() + operator + n2.getText().toString() + " is : " + result, Snackbar.LENGTH_LONG).show()
+            Toast.makeText(this, "Thank you, HNS", Toast.LENGTH_SHORT).show();
+        }
+    }
