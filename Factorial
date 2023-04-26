@@ -1,0 +1,133 @@
+///**  XML and JAVA Files  **///
+//** XML file **//
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/but"
+        android:layout_width="138dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="16dp"
+        android:text="calculate"
+        android:onClick="OnCalculateClick"
+        android:textColor="#ECEAE9"
+        app:layout_constraintBottom_toTopOf="@+id/result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/result"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.688" />
+
+    <EditText
+        android:id="@+id/num"
+        android:layout_width="230dp"
+        android:layout_height="73dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter the number"
+        android:inputType="number"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/result"
+        app:layout_constraintEnd_toStartOf="@+id/but"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.692" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="361dp"
+        android:layout_height="68dp"
+        android:gravity="center"
+        android:hint="Result"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.358" />
+        
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+//** JAVA File **//
+
+package com.example.factorial;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
+import android.annotation.SuppressLint;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.google.android.material.snackbar.Snackbar;
+import android.content.Intent;
+import android.os.Handler;
+
+public class MainActivity extends AppCompatActivity implements android.view.View.OnClickListener{
+    EditText number;
+    Button calculate;
+    TextView answer;
+    private TextView textView;
+
+    long factorial = 1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        number = (EditText) findViewById(R.id.num);
+        answer = (TextView) findViewById(R.id.result);
+        calculate = (Button) findViewById(R.id.but);
+       
+        initialize();
+        calcFactorial();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // create a new intent to restart the activity
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }
+        }, 30000); // set the time interval in milliseconds (10 seconds in this example)
+    }
+
+    private void initialize() {
+        number = (EditText) findViewById(R.id.num);
+        answer = (TextView) findViewById(R.id.result);
+        calculate = (Button) findViewById(R.id.but);
+        calculate.setOnClickListener(this);
+    }
+    private void calcFactorial() {
+        if (number.getText().toString().equals("")) number.setText("0");
+        int num = Integer.parseInt(number.getText().toString());
+        for(int i = 1; i<=num; i++){
+            factorial = i * factorial;
+        }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        calcFactorial();
+        answer.setText("Factorial of " + number.getText().toString() + " is : " +     factorial);
+        Toast.makeText(this,"Thank You",Toast.LENGTH_LONG).show();
+        Snackbar.make(v, "Factorial of " + number.getText().toString() + " is : " + factorial,Snackbar.LENGTH_LONG).show();
+    }
+
+}
+
