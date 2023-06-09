@@ -1,0 +1,99 @@
+// XML //
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    12<TextView
+        android:id="@+id/res"
+        android:layout_width="220dp"
+        android:layout_height="63dp"
+        android:hint="result"
+        android:textSize="12dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.619" />
+
+    <Button
+        android:id="@+id/cal"
+        android:layout_width="104dp"
+        android:layout_height="71dp"
+        android:text="calculate"
+        app:layout_constraintBottom_toTopOf="@+id/res"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/num"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/num"
+        android:layout_width="228dp"
+        android:layout_height="70dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/cal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+// JAVA//
+package com.example.del;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+public class MainActivity extends Activity implements android.view.View.OnClickListener {
+    EditText number;
+    TextView answer;
+    Button calculate;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        initialize();
+    }
+
+    private void initialize() {
+        number = (EditText) findViewById(R.id.num);
+        number.setHint("Enter number to be factorialized :P");
+        answer = (TextView) findViewById(R.id.res);
+        calculate = (Button) findViewById(R.id.cal);
+        calculate.setOnClickListener(this);
+    }
+
+    private long calcFactorial() {
+        long factorial = 1;
+        try {
+            int num = Integer.parseInt(number.getText().toString()); // Parse the input as an int
+            for (int i = num - 1; i > 0; i--) {
+                factorial = i * factorial;
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Incorrect Input", Toast.LENGTH_LONG).show();
+        } finally {
+        }
+        return factorial;
+    }
+
+    @Override
+    public void onClick(View v) {
+        answer.setText("Factorial of " + number.getText().toString() + " is : " + calcFactorial());
+    }
+}
