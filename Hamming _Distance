@@ -1,4 +1,32 @@
-///*** XML and JAVA Files  ***///
+//NORMAL JAVA FILE//
+
+// Java program to find hamming distance b/w 
+two string
+class GFG {
+// function to calculate Hamming distance
+static int hammingDist(String str1, String str2)
+{
+int i = 0, count = 0;
+while (i < str1.length()) {
+if (str1.charAt(i) != str2.charAt(i))
+count++;
+i++;
+}
+return count;
+}
+// Driver code
+public static void main(String[] 
+args)
+{
+String str1 = "geekspractice";
+String str2 = "nerdspractise";
+// function call
+System.out.println(hammingDist(str1, 
+str2));
+}
+}
+
+///*** ANDROID APP FILES  ***///
 
 // XML File //
 <?xml version="1.0" encoding="utf-8"?>
