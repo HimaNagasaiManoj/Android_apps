@@ -10,21 +10,6 @@
     tools:context=".MainActivity">
 
 
-    <Button
-        android:id="@+id/but"
-        android:layout_width="138dp"
-        android:layout_height="72dp"
-        android:layout_marginEnd="16dp"
-        android:text="calculate"
-        android:onClick="OnCalculateClick"
-        android:textColor="#ECEAE9"
-        app:layout_constraintBottom_toTopOf="@+id/result"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/result"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.688" />
-
     <EditText
         android:id="@+id/num"
         android:layout_width="230dp"
@@ -35,11 +20,9 @@
         android:inputType="number"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/result"
-        app:layout_constraintEnd_toStartOf="@+id/but"
-        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.692" />
+        app:layout_constraintVertical_bias="0.737" />
 
     <TextView
         android:id="@+id/result"
@@ -54,7 +37,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.358" />
-        
+
+    <Button
+        android:id="@+id/but"
+        android:layout_width="128dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:onClick="OnCalculateClick"
+        android:text="Calculate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.175" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
