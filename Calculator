@@ -159,7 +159,7 @@
 //** JAVA File  **//
 
 package com.example.calc;
-import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -264,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             res.setText("The Value of " + n1.getText().toString() + operator + n2.getText().toString() + " is : " + result);
-            Snackbar.make(add, "The Value of " + n1.getText().toString() + operator + n2.getText().toString() + " is : " + result, Snackbar.LENGTH_LONG).show()
-            Toast.makeText(this, "Thank you, HNS", Toast.LENGTH_SHORT).show();
+            Snackbar.make(add, "The Value of " + n1.getText().toString() + operator + n2.getText().toString() + " is : " + result, Snackbar.LENGTH_LONG).show();
+            Toast.makeText(this, "Thank you", Toast.LENGTH_SHORT).show();
         }
     }
